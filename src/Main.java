@@ -26,7 +26,7 @@ public class Main {
         }
         System.out.println(" ");
         System.out.println("Задача 4");
-        int years = 22;
+        int years = 26;
         if (years >= 2 && years <= 6) {
             System.out.println("нужно ходить в детский сад");
         }
@@ -35,6 +35,8 @@ public class Main {
         }
         if (years >= 18 && years <= 24) {
             System.out.println("его место в университете");
+        }if (years > 24) {
+            System.out.println("пора ходить на работу");
         }
         System.out.println(" ");
         System.out.println("Задача 5");
@@ -75,13 +77,55 @@ public class Main {
         }
 // повышенная сложность
         System.out.println("повышенная сложность 1");
-        int age1 = 24;
-        int salary = 45000;
-        int creditCartLimit = salary;
-        if (age1>=23) {creditCartLimit*=3;}
-        else {creditCartLimit*=2;}
-        if (salary>=50000 && salary<80000 ) {creditCartLimit*=1.2;System.out.println("Мы готовы выдать вам кредитную карту с лимитом " +creditCartLimit + "рублей");}
-        if (salary>=80000) {creditCartLimit *=1.3;System.out.println("Мы готовы выдать вам кредитную карту с лимитом " +creditCartLimit + "рублей");}
+        int agePeople = 22;
+        int salary = 80000;
+        int maxLimit = salary;
+        if (agePeople >= 23) {
+            maxLimit *= 3;
+        } else {
+            maxLimit *= 2;
+        }
+        if (salary < 50000) {
+            System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + maxLimit + " рублей");
+        }
+        if (salary >= 50000 && salary < 80000) {
+            maxLimit *= 1.2;
+            System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + maxLimit + " рублей");
+        }
+        if (salary >= 80000) {
+            maxLimit *= 1.3;
+            System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + maxLimit + " рублей");
+        }
+
+        System.out.println("\n");
+        System.out.println("повышенная сложность 2");
+        int ageClient = 25;
+        int salaryClient = 5000;
+        int wantedSum = 330000;
+        double baseRate = 10;
+        int loanTerm = 12;
+        double creditPay = wantedSum * baseRate / 100 / loanTerm;
+        int maxМounthPay = salaryClient / 100 * 50;
+        boolean approvedCredit = creditPay < maxМounthPay;
+        if (ageClient < 23) {
+            baseRate += 1;
+            creditPay = wantedSum * baseRate / 100 / loanTerm;
+            System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
+        } else if (approvedCredit == false) {
+            System.out.println("отказ");
+        }
+
+        if (ageClient > 23 && ageClient < 30) {
+            baseRate += 0.5;
+            creditPay = wantedSum * baseRate / 100 / loanTerm;
+            System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
+        }
+
+        if (salary > 80000) {
+            baseRate -= 0.7;
+            creditPay = wantedSum * baseRate / 100 / loanTerm;
+            System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
+        }
 
 
     }
