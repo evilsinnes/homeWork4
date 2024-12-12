@@ -78,7 +78,7 @@ public class Main {
 // повышенная сложность
         System.out.println("повышенная сложность 1");
         int agePeople = 22;
-        int salary = 80000;
+        int salary = 60000;
         int maxLimit = salary;
         if (agePeople >= 23) {
             maxLimit *= 3;
@@ -99,23 +99,20 @@ public class Main {
 
         System.out.println("\n");
         System.out.println("повышенная сложность 2");
-        int ageClient = 25;
-        int salaryClient = 5000;
+        int ageClient = 22;
+        int salaryClient = 60000;
         int wantedSum = 330000;
         double baseRate = 10;
         int loanTerm = 12;
         double creditPay = wantedSum * baseRate / 100 / loanTerm;
         int maxМounthPay = salaryClient / 100 * 50;
-        boolean approvedCredit = creditPay < maxМounthPay;
-        if (ageClient < 23) {
+        if (ageClient < 23 && creditPay < maxМounthPay) {
             baseRate += 1;
             creditPay = wantedSum * baseRate / 100 / loanTerm;
             System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
-        } else if (approvedCredit == false) {
-            System.out.println("отказ");
         }
 
-        if (ageClient > 23 && ageClient < 30) {
+        if (ageClient > 23 && ageClient < 30 && creditPay < maxМounthPay) {
             baseRate += 0.5;
             creditPay = wantedSum * baseRate / 100 / loanTerm;
             System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
@@ -126,6 +123,9 @@ public class Main {
             creditPay = wantedSum * baseRate / 100 / loanTerm;
             System.out.println("Максимальный платеж при ЗП " + salaryClient + " равен " + maxМounthPay + " рублей. Платеж по кредиту " + creditPay + " рублей. Одобрено");
         }
+        boolean approvedCredit = creditPay < maxМounthPay;
+        if (approvedCredit==false){
+            System.out.println("отказ");}
 
 
     }
